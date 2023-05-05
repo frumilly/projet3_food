@@ -1,5 +1,5 @@
 *{
-    font-family: 'Raleway', sans-serif; /* Un nom de police suivi d'un nom de famille générique */
+    font-family: 'roboto', sans-serif; /* Un nom de police suivi d'un nom de famille générique */
     box-sizing: border-box; /* indique au navigateur de prendre en compte la bordure et le remplissage dans la valeur définie pour la largeur et la hauteur */
     margin: 50;
     padding: 50;
@@ -15,8 +15,8 @@ li{
     list-style-type: none;
 }
 
-#logo{
-	
+.titre{
+	font-family: 'Shrikhand';
     width: 45%;
     display: flex;
     margin-left: auto;
@@ -48,10 +48,16 @@ li{
     font-weight: bold;
     height: 20px;
 }
-.recherche h1,p  {
+.fa-solid, .fas {
+    color: black;
+}
+/*.recherche h1,p  {
     margin-bottom: 15px;
     margin-left: 40px;
     margin-right: 40px;
+} */
+.titre_p h3{
+    margin-top: -10px;
 }
 .recherche button {
     cursor: pointer;
@@ -69,6 +75,45 @@ li{
     transition: opacity 1s;
     transition: transform 330ms ease-in-out;
     margin-top: 20px;
+}
+ol {
+    counter-reset: compteListe;
+}
+ol li::before {
+    counter-increment: compteListe 1;
+    content: counter(compteListe) " ";
+    background: #9356DC;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    margin-top: -2px;
+    margin-left: -50px;
+}
+ol li {
+    cursor: pointer;
+    background: #f6f6f6;
+    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+  
+    border-radius: 25px;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 37px;
+}
+li {
+    list-style-type: none;
+}
+.fa-solid, .fas {
+   margin-right:10px;
+}
+.fonctionnement h2{
+    margin-left: 30px;
 }
 .restaurants {
     background: #f6f6f6;
@@ -121,6 +166,16 @@ footer a,i{
 @media screen and (min-width: 992px){
 	h2 {
     text-align: center;
+}
+.titre{
+    text-align: center;
+    margin-left: 650px;
+    font-weight: bolder;
+    font-style: italic;
+}
+ol {
+    display: flex;
+    justify-content: space-around;
 }
 	.rangement_carte-restaurant {
     display: flex;
