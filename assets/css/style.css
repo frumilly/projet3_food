@@ -1,9 +1,10 @@
 *{
-    font-family: 'roboto', sans-serif; /* Un nom de police suivi d'un nom de famille générique */
+   
     box-sizing: border-box; /* indique au navigateur de prendre en compte la bordure et le remplissage dans la valeur définie pour la largeur et la hauteur */
    
 }
 body{
+    font-family: 'roboto', sans-serif; /* Un nom de police suivi d'un nom de famille générique */
     min-width: 300px;
     margin:0px;
 }
@@ -17,12 +18,10 @@ li{
 
 .titre{
 	font-family:  Shrikhand, cursive;
-    width: 45%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    text-align: center;
+}
+.footer_titre{
+    font-family:  Shrikhand, cursive;
 }
 .recherche {
     background: #f6f6f6;
@@ -212,7 +211,6 @@ footer li{
 }
 .fa-heart{
     position: relative;
-    top: 25px;
     font-size: 30px;
 }
 .titre2{
