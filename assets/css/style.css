@@ -22,23 +22,56 @@ li{
     list-style-type: none;
 }
 
+/* ANIMATION */
+/* animation coeur */
+.heart-container {
+    display: inline-block; 
+    position: relative; 
+    cursor: pointer; /* Change le curseur de la souris en une main pointant vers l'élément */
+  }
+  
+  .heart-container .heart {
+    display: none; /* Masque l'élément heart */
+  }
+  
+  .heart-container .heart-label {
+    font-size: 2rem; 
+    color: white; /* Définit la couleur du fond du coeur en blanc */
+    transition: color 5s; /* Ajoute une transition de 5 secondes à la propriété 'color' pour simuler le remplissage progressif */
+  }
+  
+  .heart-container .heart:checked + .heart-label {
+    color: purple; /* Le fond du coeur lorsque l'élément heart est coché */
+  }
+  
+  .heart-container .heart:hover + .heart-label {
+    color: plum; /* Définit la couleur du texte en violet clair lors du survol de l'élément heart */
+  }
+  
+  .heart-container .heart-label::before {
+    content: "\f004"; /* Ajoute le caractère de cœur de Font Awesome avant le contenu de l'élément label */
+    font-family: FontAwesome; /* Utilise la police Font Awesome pour afficher le caractère de cœur */
+    text-shadow: 2px 2px 4px black, 2px 2px 4px black; /* Ajoute une ombre avec un décalage de 2 pixels vers la droite et le bas pour simuler un contour noir autour du cœur */
+  }
+  
 
+  /**** animation loading */
 .loader {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right:0;
+    bottom:0;
     background-color: #fff;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: loaderFadeOut 1s ease-out 1s forwards;
+    animation: loaderFadeOut 1s ease-out 2s forwards;
   }
   
   .loader img {
-    animation: imageSpin 2s linear infinite;
+    animation: imageSpin 3s linear infinite;
   }
   
   @keyframes loaderFadeOut {
@@ -61,7 +94,18 @@ li{
     }
   }
   
-  
+  /* animation bouton */
+  .recherche button:hover {
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    
+  }
+  .commander_bouton button:hover {
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    
+  }
+  /** fin animation */
 .titre{
 	font-family:  Shrikhand, cursive;
     text-align: center;
