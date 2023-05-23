@@ -105,6 +105,23 @@ li{
     opacity: 0.6;
     
   }
+
+
+  /* animation check */
+  .check {
+    background-color: #99E2D0;
+    color: white;
+    border-radius: 0px 15px 15px 0px;
+    width: 0px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transition: width 1s; */
+}
+.menu_card:hover .check {
+    width: 60px;
+  }
   /** fin animation */
 
   /** apparition des menus */
