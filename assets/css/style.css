@@ -119,9 +119,35 @@ li{
     align-items: center;
     /* transition: width 1s; */
 }
+
+.nom_plat{ overflow: hidden;
+    /* si nécessaire, texte rogné et ... */
+    text-overflow: ellipsis;}
+.description1{
+        line-height: 25px;
+        flex-grow: 1;
+        overflow: hidden;
+        /* si nécessaire, texte rogné et ... */
+        text-overflow: ellipsis;
+        /* empêche le retour à la ligne */
+        white-space: nowrap;
+        padding-right: 10px;
+      
+}
+.check{
+    margin-left: 20px ;
+    opacity: 0;
+    transition: 2s;
+  }
 .menu_card:hover .check {
     width: 60px;
+    opacity:1;
   }
+  .menu_card:hover .check > .fa-circle-check {   
+    transform: rotate(360deg);
+  }
+  
+ 
   /** fin animation */
 
   /** apparition des menus */
@@ -359,6 +385,7 @@ footer li{
     padding-right: 20px;
     margin-bottom: 25px;
     box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+   
 }
 .commander_bouton{
     text-align: center;
