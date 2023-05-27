@@ -25,34 +25,42 @@ li{
 /* ANIMATION */
 /* animation coeur */
 .heart-container {
-    display: inline-block; 
-    position: relative; 
-    cursor: pointer; /* Change le curseur de la souris en une main pointant vers l'élément */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
   }
   
   .heart-container .heart {
-    display: none; /* Masque l'élément heart */
+    display: none;
   }
   
   .heart-container .heart-label {
-    font-size: 2rem; 
-    color: white; /* Définit la couleur du fond du coeur en blanc */
-    transition: color 5s; /* Ajoute une transition de 5 secondes à la propriété 'color' pour simuler le remplissage progressif */
+    font-size: 2rem;
+    color: white;
+    transition: color 5s;
   }
   
-  .heart-container .heart:checked + .heart-label {
-    color: purple; /* Le fond du coeur lorsque l'élément heart est coché */
-  }
-  
-  .heart-container .heart:hover + .heart-label {
-    color: plum; /* Définit la couleur du texte en violet clair lors du survol de l'élément heart */
+  @keyframes colorChange {
+    0% {
+      color: white;
+    }
+    100% {
+      color: purple;
+    }
   }
   
   .heart-container .heart-label::before {
-    content: "\f004"; /* Ajoute le caractère de cœur de Font Awesome avant le contenu de l'élément label */
-    font-family: FontAwesome; /* Utilise la police Font Awesome pour afficher le caractère de cœur */
-    text-shadow: 2px 2px 4px black, 2px 2px 4px black; /* Ajoute une ombre avec un décalage de 2 pixels vers la droite et le bas pour simuler un contour noir autour du cœur */
+    content: "\f004";
+    font-family: FontAwesome;
+    text-shadow: 2px 2px 4px black, 2px 2px 4px black;
+    opacity: 1;
+    color: white;
   }
+  
+  .heart-container:hover .heart-label::before {
+    animation: colorChange 5s linear forwards;
+  }
+  
   
 
   /**** animation loading */
@@ -71,7 +79,7 @@ li{
   }
   
   .loader img {
-    animation: imageSpin 3s linear infinite;
+    animation: imageSpin 2s linear infinite;
   }
   
   @keyframes loaderFadeOut {
@@ -96,12 +104,12 @@ li{
   
   /* animation bouton */
   .recherche button:hover {
-    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 10px 4px 5px 0px rgba(0, 0, 0, 0.4);
     opacity: 0.6;
     
   }
   .commander_bouton button:hover {
-    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 10px 4px 5px 0px rgba(0, 0, 0, 0.4);
     opacity: 0.6;
     
   }
@@ -117,7 +125,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* transition: width 1s; */
+   
 }
 
 .nom_plat{ overflow: hidden;
@@ -134,37 +142,75 @@ li{
         padding-right: 10px;
       
 }
+.detail_plat p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .check{
     margin-left: 20px ;
     opacity: 0;
     transition: 2s;
   }
 .menu_card:hover .check {
-    width: 60px;
+    width: 160px;
     opacity:1;
   }
-  .menu_card:hover .check > .fa-circle-check {   
-    transform: rotate(360deg);
-  }
-  
  
-  /** fin animation */
+.detail_plat{
+    line-height: 25px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+ .menu_card{
+    cursor: pointer;
+    overflow: hidden;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 12px;
+    margin-bottom: 15px;
+    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+    transition: transform 230ms ease-in-out;
+ }
+  /** fin animation check */
 
   /** apparition des menus */
-  .menu_card {
+  .menu {
     opacity: 0;
-    animation: fadeIn 5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
+    animation: fadeIn 1s forwards;
+  }
+  
+  .menu:nth-child(2) {
+    animation-delay: 0s;
+  }
+  
+  .menu:nth-child(3) {
+    animation-delay: 1s;
+  }
+  
+  .menu:nth-child(4) {
+    animation-delay: 2s;
+  }
+  
+  /* Ajoutez d'autres sélecteurs .menu:nth-child() pour chaque div "menu" supplémentaire */
+  
+  @keyframes fadeIn {
     0% {
-        opacity: 0;
+      opacity: 0;
     }
     100% {
-        opacity: 1;
+      opacity: 1;
     }
-}
-
+  }
+   
+/* Fin animation */
 .titre{
 	font-family:  Shrikhand, cursive;
     text-align: center;
@@ -179,6 +225,9 @@ li{
     padding-right: 20px;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+.recherche h2{
+    font-size: 35px;
 }
 .localisation {
     box-shadow: inset 0px 2px 5px #cacbcb;
@@ -196,9 +245,9 @@ li{
     font-weight: bold;
     height: 20px;
 }
-.fa-solid, .fas {
-    color: black;
-}
+.menu_card:hover .check {
+    width: 60px;
+  }
 /*.recherche h1,p  {
     margin-bottom: 15px;
     margin-left: 40px;
@@ -261,6 +310,11 @@ ol li:hover i {
 .fa-solid, .fas {
    margin-right:10px;
 }
+.check .fa-solid{
+    margin-right: 0px;
+    font-size: 16px;
+}
+
 .fonctionnement h2{
     margin-left: 30px;
 }
@@ -271,7 +325,7 @@ ol li:hover i {
 .restaurants_carte-restaurant {
     border-radius: 15px;
     margin-top: 20px;
-    margin-bottom: 26px;
+    margin-bottom: 27px;
     background: white;
     box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.12);
     position: relative;
@@ -357,12 +411,7 @@ footer li{
     position: relative;
     top: 10px;
 }
-.detail_plat{
-    display: flex;
-    margin-top: -20px;
-    margin-bottom: -10px;
-    justify-content: space-between;
-}
+
 .titre_menu{
     font-family: Shrikhand, cursive;
     font-size: 25px;
@@ -382,7 +431,6 @@ footer li{
     background-color: white;
     border-radius: 15px;
     padding-left: 12px;
-    padding-right: 20px;
     margin-bottom: 25px;
     box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
    
