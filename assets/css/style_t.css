@@ -1,0 +1,530 @@
+*{
+   
+    box-sizing: border-box; /* indique au navigateur de prendre en compte la bordure et le remplissage dans la valeur définie pour la largeur et la hauteur */
+   
+}
+body{
+    font-family: 'roboto', sans-serif; /* Un nom de police suivi d'un nom de famille générique */
+    min-width: 300px;
+    margin:0px;
+}
+:root {
+    --main-color: #9356DC;
+    --second-color: #FF79DA;
+    --tertiaire-color: #99E2D0
+    ;
+}
+a{
+    text-decoration:none;
+    color: black;
+}
+li{
+    list-style-type: none;
+}
+
+/* ANIMATION */
+/* animation coeur */
+
+.animation_coeur {
+   
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .animation_coeur input[type=checkbox]:checked ~ .coeur_non-select {
+    display: none;
+  }
+  
+  .animation_coeur input[type=checkbox]:checked ~ .coeur_select {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0);
+  }
+  
+  .animation_coeur input[type=checkbox], .animation_coeur .coeur_select {
+    display: none;
+    animation: like 0.5s;
+    animation-fill-mode: forwards;
+    transition: all 0.3s linear 0s;
+  }
+  
+  @keyframes like {
+    0% {
+      height: 0%;
+    }
+    10% {
+      height: 10%;
+    }
+    25% {
+      height: 25%;
+    }
+    50% {
+      height: 50%;
+    }
+    75% {
+      height: 75%;
+    }
+    100% {
+      height: 100%;
+      background: linear-gradient(to bottom, #9356DC, #FF79DA);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+  
+
+  /**** animation loading */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: loaderFadeOut 1s ease-out 2s forwards;
+  }
+  
+  .loader img {
+    animation: imageSpin 2s linear infinite;
+  }
+  
+  @keyframes loaderFadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes imageSpin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* animation bouton */
+  .recherche button:hover {
+    box-shadow: 10px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    
+  }
+  .commander_bouton button:hover {
+    box-shadow: 10px 4px 5px 0px rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    
+  }
+
+
+  /* animation check */
+  .check {
+    background-color: #99E2D0;
+    color: white;
+    border-radius: 0px 15px 15px 0px;
+    width: 0px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.nom_plat{ overflow: hidden;
+    /* si nécessaire, texte rogné et ... */
+    text-overflow: ellipsis;}
+.description1{
+        line-height: 25px;
+        flex-grow: 1;
+        overflow: hidden;
+        /* si nécessaire, texte rogné et ... */
+        text-overflow: ellipsis;
+        /* empêche le retour à la ligne */
+        white-space: nowrap;
+        padding-right: 10px;
+      
+}
+.detail_plat p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.check{
+    margin-left: 20px ;
+    opacity: 0;
+    transition: 2s;
+  }
+.menu_card:hover .check {
+    width: 160px;
+    opacity:1;
+  }
+ 
+.detail_plat{
+    line-height: 25px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+ .menu_card{
+    cursor: pointer;
+    overflow: hidden;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 12px;
+    margin-bottom: 15px;
+    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+    transition: transform 230ms ease-in-out;
+ }
+  /** fin animation check */
+
+  /** apparition des menus */
+  .menu {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .menu:nth-child(2) {
+    animation-delay: 0s;
+  }
+  
+  .menu:nth-child(3) {
+    animation-delay: 1s;
+  }
+  
+  .menu:nth-child(4) {
+    animation-delay: 2s;
+  }
+  
+  /* Ajoutez d'autres sélecteurs .menu:nth-child() pour chaque div "menu" supplémentaire */
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+   
+/* Fin animation */
+.titre{
+	font-family:  Shrikhand, cursive;
+    text-align: center;
+}
+.footer_titre{
+    font-family:  Shrikhand, cursive;
+}
+.recherche {
+    background: #f6f6f6;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.recherche h2{
+    font-size: 35px;
+}
+.localisation {
+    box-shadow: inset 0px 2px 5px #cacbcb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e6e6e7;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.localisation_selection-lieu {
+    text-align: center;
+    background: none;
+    border: none;
+    font-weight: bold;
+    height: 20px;
+}
+.menu_card:hover .check {
+    width: 60px;
+  }
+/*.recherche h1,p  {
+    margin-bottom: 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+} */
+.titre_p h3{
+    margin-bottom: -10px;
+}
+.recherche button {
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    width: 220px;
+    height: 50px;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(356deg, var(--main-color) 0%, var(--second-color) 100%);
+    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.12);
+   
+   
+    margin-top: 20px;
+}
+ol {
+    counter-reset: compteListe;
+}
+ol li::before {
+    counter-increment: compteListe 1;
+    content: counter(compteListe) " ";
+    background: var(--main-color);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    margin-top: -2px;
+    margin-left: -50px;
+}
+ol li {
+    cursor: pointer;
+    background: #f6f6f6;
+    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+  
+    border-radius: 25px;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 37px;
+}
+li {
+    list-style-type: none;
+}
+ol li:hover i {
+    color: var(--main-color);
+}
+.fa-solid, .fas {
+   margin-right:10px;
+}
+.check .fa-solid{
+    margin-right: 0px;
+    font-size: 16px;
+}
+
+.fonctionnement h2{
+    margin-left: 30px;
+}
+.restaurants {
+    background: #f6f6f6;
+    padding: 50px 20px 40px 20px;
+}
+.restaurants_carte-restaurant {
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 27px;
+    background: white;
+    box-shadow: 0px 4px 5px 1px rgba(0, 0, 0, 0.12);
+    position: relative;
+    
+}
+.restaurants img {
+    object-fit: cover;
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 170px;
+}
+.mot_nouveau{
+    color: #008766;
+    background: #99E2D0;
+    border-radius: 2px;
+    position: absolute;
+    padding: 6px 0px 6px 11px;
+    width: 78px;
+    right: 12px;
+    top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 20px 15px 13px;
+}
+footer {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    background-color: #343434;
+    
+}
+footer a{
+	color: white;
+}
+footer .fa-solid{
+    color: white;
+}
+footer ul{
+    margin-left: -33px;
+}
+footer li{
+    margin-bottom: 10px;
+}
+
+/* Pages restaurant */
+.fleche{
+    position: relative;
+    top:50px;
+    left:20px;
+    font-size: 20px;
+}
+ .image_restaurant {
+    width: 100%;
+    object-fit: cover;
+}
+.fond_page{
+    background: #f6f6f6;
+    position: relative;
+    border-radius: 40px 40px 0px 0px;
+    margin-top: -14%;
+    padding-bottom: 60px;
+}
+.menu_page{
+    margin:30px;
+    
+}
+.titre_menu {
+    margin-right: 10px; /* Ajuster la valeur de la marge à votre préférence */
+  }
+.titre_coeur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.prix{
+    font-weight: bold;
+}
+.nom_plat{
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+}
+
+.titre_menu{
+    font-family: Shrikhand, cursive;
+    font-size: 25px;
+}
+.fa-heart{
+    position: relative;
+    font-size: 30px;
+}
+.titre2{
+    font-weight: normal;
+    border-bottom: 3px solid var(--tertiaire-color);
+    width: 40px;
+    margin-top: 50px;
+    position: relative;
+}
+.menu_card{
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 12px;
+    margin-bottom: 25px;
+    box-shadow: 1px 4px 9px 1px rgba(0, 0, 0, 0.1);
+   
+}
+.commander_bouton{
+    text-align: center;
+}
+.commander_bouton button{
+  border: none;
+    border-radius: 30px;
+    width: 220px;
+    height: 50px;
+    padding: 10px;
+    color: white;
+    margin-top: 40px;
+background: linear-gradient(356deg, var(--main-color) 0%, var(--second-color) 100%);
+}
+@media screen and (min-width: 992px){
+	h2 {
+    text-align: center;
+}
+
+ol li{
+    padding-right: 50px;
+}
+ol {
+    display: flex;
+    justify-content: space-around;
+}
+.fonctionnement h2{
+    text-align: left;
+    margin-left: 150px;
+}
+.restaurants h2{
+    text-align: left;
+    margin-left: 150px;
+}
+	.rangement_carte-restaurant {
+        margin-left: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+.restaurants_carte-restaurant {
+    width: 40%; /* 2 images sur une ligne */
+}
+
+.image_restaurant{
+  width:100%;
+  height:400px;
+}
+.animation_coeur{
+    margin-top: 0px;
+}
+
+.titre_coeur{
+  margin-bottom: 50px;
+}
+.fond_page{
+  
+    top:140px;
+    width:70%;
+  
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer li{
+   
+        display: inline-block;
+        margin-right: 10px;
+      
+}
+footer {
+    margin-top: 140px;
+    display: flex;
+    flex-direction : row-reverse;
+    padding-right: 50px;
+   gap:20px;
+}
+footer h3{
+    padding-left: 50px;
+}
+}
